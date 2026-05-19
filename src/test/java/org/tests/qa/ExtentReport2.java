@@ -34,6 +34,7 @@ public class ExtentReport2 {
 		test = extent.createTest("TC001_GoogleLogin");
 		driver = new ChromeDriver();
 		driver.get("https://www.google.com/");
+		System.out.println("test");
 		
 		try {
 		Assert.assertEquals(driver.getTitle(), "Google12");
