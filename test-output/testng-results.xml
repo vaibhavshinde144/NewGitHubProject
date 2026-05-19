@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-05-08T07:19:31 IST" name="Default suite" finished-at="2026-05-08T07:19:39 IST" duration-ms="8643">
+    <groups>
+    </groups>
+    <test started-at="2026-05-08T07:19:31 IST" name="Default test" finished-at="2026-05-08T07:19:39 IST" duration-ms="8643">
+      <class name="org.tests.qa.ReportingLog4JTest">
+        <test-method signature="TC001_loginTest()[pri:0, instance:org.tests.qa.ReportingLog4JTest@4ed5eb72]" started-at="2026-05-08T07:19:31 IST" name="TC001_loginTest" finished-at="2026-05-08T07:19:39 IST" duration-ms="8576" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC001_loginTest -->
+      </class> <!-- org.tests.qa.ReportingLog4JTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
