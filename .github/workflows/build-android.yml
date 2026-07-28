@@ -1,0 +1,39 @@
+name: Build Atrangi Android APK
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'android/**'
+      - 'app-payload/**'
+      - '.github/workflows/build-android.yml'
+  push:
+    branches: [ atrangi-document-workspace ]
+    paths:
+      - 'android/**'
+      - 'app-payload/**'
+      - '.github/workflows/build-android.yml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble bundled web app
+        run: mkdir -p android/app/src/main/assets/www && cat app-payload/app.part.* > android/app/src/main/assets/www/index.html
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Build APK
+        working-directory: android
+        run: gradle assembleRelease --stacktrace
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Atrangi-Document-Workspace-APK
+          path: android/app/build/outputs/apk/release/app-release.apk
